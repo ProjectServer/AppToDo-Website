@@ -28,19 +28,20 @@ html, body{
     -moz-box-shadow: 4px 4px 22px 8px rgba(218,218,218,1);
     box-shadow: 4px 4px 22px 8px rgba(218,218,218,1);
     border-radius: 10px;
-    padding: 60px 20px 20px 20px;
+    padding: 30px 20px 20px 20px;
     .task-form-title{
     input{
       width: 100%;
-      padding: 10px 35px;
-      border: none;
-      border-bottom: 2px solid grey;
+      padding: 15px 40px;
+      border: 1px solid #DADADA;
       outline: none;
+      border-radius: 10px;
     }
+    
     i{
       position: absolute;
-      margin-left: -355px;
-      margin-top: 10px;
+      margin-left: -347px;
+      margin-top: 16px;
     }
   }
   .task-informations{
@@ -48,9 +49,64 @@ html, body{
     width: 100%;
     background: #F7F8F9;
     border-radius: 10px;
-    padding: 10px 35px;
+    padding: 10px 15px;
     display: flex;
     flex-direction: column;
+    .select {
+      position: relative;
+      min-width: 200px;
+    }
+    .select svg {
+      position: absolute;
+      right: 12px;
+      top: calc(50% - 3px);
+      width: 10px;
+      height: 6px;
+      stroke-width: 2px;
+      stroke: #9098a9;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      pointer-events: none;
+    }
+    .select select {
+      -webkit-appearance: none;
+      padding: 7px 40px 7px 12px;
+      width: 100%;
+      border: 1px solid #e8eaed;
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 0 1px 3px -2px #9098a9;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 16px;
+      transition: all 150ms ease;
+    }
+    .select select:required:invalid {
+      color: #5a667f;
+    }
+    .select select option {
+      color: #223254;
+    }
+    .select select option[value=""][disabled] {
+      display: none;
+    }
+    .select select:focus {
+      outline: none;
+      border-color: #dadada;
+      box-shadow: 0 0 0 2px rgba(0,119,255,0.2);
+    }
+    .select select:hover + svg {
+      stroke: black;
+    }
+    .sprites {
+      position: absolute;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+    
     .task-informations-categories{
       display: flex;
       justify-content: space-between;
@@ -67,6 +123,7 @@ html, body{
       justify-content: space-between;
       align-items: center;
       margin: 10px 0px;
+      
       h2{
         font-size: 20px;
         color: #82878F;
@@ -84,11 +141,10 @@ html, body{
       padding: 15px 15px;
       outline: none;
       box-shadow: 1px 1px 5px 2px #dadada;
-      border: none;
-      
+      border: none; 
     }
     ::placeholder{
-      color: black;
+      color: #82878F;
     }
   }
   .task-button{
@@ -118,4 +174,7 @@ html, body{
 
 }
 
-
+// Darkmode exception 
+.darkmode--activated .task-form .task-form-title i{
+  color: white;
+}

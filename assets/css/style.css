@@ -37,28 +37,85 @@ html, body {
   background: white;
   box-shadow: 4px 4px 22px 8px #dadada;
   border-radius: 10px;
-  padding: 60px 20px 20px 20px;
+  padding: 30px 20px 20px 20px;
 }
 .container .task-form .task-form-title input {
   width: 100%;
-  padding: 10px 35px;
-  border: none;
-  border-bottom: 2px solid grey;
+  padding: 15px 40px;
+  border: 1px solid #DADADA;
   outline: none;
+  border-radius: 10px;
 }
 .container .task-form .task-form-title i {
   position: absolute;
-  margin-left: -355px;
-  margin-top: 10px;
+  margin-left: -347px;
+  margin-top: 16px;
 }
 .container .task-form .task-informations {
   margin-top: 20px;
   width: 100%;
   background: #F7F8F9;
   border-radius: 10px;
-  padding: 10px 35px;
+  padding: 10px 15px;
   display: flex;
   flex-direction: column;
+}
+.container .task-form .task-informations .select {
+  position: relative;
+  min-width: 200px;
+}
+.container .task-form .task-informations .select svg {
+  position: absolute;
+  right: 12px;
+  top: calc(50% - 3px);
+  width: 10px;
+  height: 6px;
+  stroke-width: 2px;
+  stroke: #9098a9;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.container .task-form .task-informations .select select {
+  -webkit-appearance: none;
+  padding: 7px 40px 7px 12px;
+  width: 100%;
+  border: 1px solid #e8eaed;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 1px 3px -2px #9098a9;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  transition: all 150ms ease;
+}
+.container .task-form .task-informations .select select:required:invalid {
+  color: #5a667f;
+}
+.container .task-form .task-informations .select select option {
+  color: #223254;
+}
+.container .task-form .task-informations .select select option[value=""][disabled] {
+  display: none;
+}
+.container .task-form .task-informations .select select:focus {
+  outline: none;
+  border-color: #dadada;
+  box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+}
+.container .task-form .task-informations .select select:hover + svg {
+  stroke: black;
+}
+.container .task-form .task-informations .sprites {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .container .task-form .task-informations .task-informations-categories {
   display: flex;
@@ -96,13 +153,13 @@ html, body {
   border: none;
 }
 .container .task-form .task-description ::-moz-placeholder {
-  color: black;
+  color: #82878F;
 }
 .container .task-form .task-description :-ms-input-placeholder {
-  color: black;
+  color: #82878F;
 }
 .container .task-form .task-description ::placeholder {
-  color: black;
+  color: #82878F;
 }
 .container .task-form .task-button {
   margin-top: 20px;
@@ -125,4 +182,8 @@ html, body {
   width: 300px;
   height: 300px;
   background: red;
+}
+
+.darkmode--activated .task-form .task-form-title i {
+  color: white;
 }/*# sourceMappingURL=style.css.map */

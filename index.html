@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
   <script src="https://kit.fontawesome.com/6020417c1f.js" crossorigin="anonymous"></script>
   <title> AppToDo </title>
 </head>
@@ -22,12 +23,28 @@
             <div class="task-informations-title">
               <h2> Catégories </h2>
             </div>
-            <div class="task-informations-select">
-              <select>
-                <option> 1</option>
-                <option> 1</option>
-                <option> 1</option>
-              </select>
+            <div class="task-informations-select">  
+              <label class="select" for="slct">
+                <select id="slct" required="required">
+                  <option value="" disabled="disabled" selected="selected">Catégories</option>
+                  <option value="#">One</option>
+                  <option value="#">Two</option>
+                  <option value="#">Three</option>
+                  <option value="#">Four</option>
+                  <option value="#">Five</option>
+                  <option value="#">Six</option>
+                  <option value="#">Seven</option>
+                </select>
+                <svg>
+                  <use xlink:href="#select-arrow-down"></use>
+                </svg>
+              </label>
+              <!-- SVG Sprites-->
+              <svg class="sprites">
+                <symbol id="select-arrow-down" viewbox="0 0 10 6">
+                  <polyline points="1 1 5 5 9 1"></polyline>
+                </symbol>
+              </svg>
             </div>
           </div>
           <div class="task-informations-date">
@@ -35,11 +52,33 @@
               <h2> Date </h2>
             </div>
             <div class="task-information-date-select">
-              <select>
-                <option> 1</option>
-                <option> 1</option>
-                <option> 1</option>
-              </select>
+              <label class="select" for="slctdate">
+                <select id="slctdate" required="required">
+                  <option value="" id="selectDate" disabled="disabled" selected="selected">
+                  <script>
+                    var today = new Date();
+                    var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+                    document.write(date);
+                  </script>
+                  </option>
+                  <option value="#">One</option>
+                  <option value="#">Two</option>
+                  <option value="#">Three</option>
+                  <option value="#">Four</option>
+                  <option value="#">Five</option>
+                  <option value="#">Six</option>
+                  <option value="#">Seven</option>
+                </select>
+                <svg>
+                  <use xlink:href="#select-arrow-down"></use>
+                </svg>
+              </label>
+              <!-- SVG Sprites-->
+              <svg class="sprites">
+                <symbol id="select-arrow-down" viewbox="0 0 10 6">
+                  <polyline points="1 1 5 5 9 1"></polyline>
+                </symbol>
+              </svg>
             </div>
           </div>
         </div>
@@ -55,6 +94,6 @@
       </div>
     </div>
 
-
+    <script src="assets/js/index.js"></script>
   </body>
 </html>
