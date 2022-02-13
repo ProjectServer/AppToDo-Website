@@ -16,11 +16,88 @@
   font-family: "Ubuntu", sans-serif;
 }
 
+::-moz-selection {
+  background: black;
+  color: white;
+}
+
+::selection {
+  background: black;
+  color: white;
+}
+
 html, body {
   width: 100%;
   height: 100%;
   margin: 0;
   font-family: "Ubuntu", sans-serif;
+}
+
+.darkmode--activated ::-moz-selection {
+  background: white;
+  color: black;
+}
+
+.darkmode--activated ::selection {
+  background: white;
+  color: black;
+}
+.darkmode--activated .remodal.remodal-task.remodal-task-modify .remodal-task-title input {
+  background: #202327;
+  color: white;
+}
+.darkmode--activated .remodal.remodal-task.remodal-task-modify .remodal-task-description textarea {
+  background: #202327;
+  color: white;
+}
+.darkmode--activated .remodal.remodal-task.remodal-task-modify .remodal-task-informations .remodal-task-categories input {
+  background: #202327;
+  color: white;
+}
+.darkmode--activated .remodal.remodal-task.remodal-task-modify .remodal-task-informations .remodal-task-date button {
+  background: #202327;
+  color: white;
+}
+.darkmode--activated .container .task-form {
+  background: #16181C !important;
+  box-shadow: 4px 4px 10px 3px #252525;
+}
+.darkmode--activated .container .task-form .task-form-title input {
+  background: #202327;
+  color: white;
+}
+.darkmode--activated .container .task-form .task-informations {
+  background: #202329;
+}
+.darkmode--activated .container .task-form .task-description textarea {
+  box-shadow: none;
+  background: #202327;
+  color: white;
+}
+.darkmode--activated .container .tasks-content .task {
+  background: #E9E7E2;
+  box-shadow: 4px 4px 10px 3px #C2C2C2;
+}
+.darkmode--activated .container .tasks-content .task .task-brand .task-brand-title .radio-container .checkmark {
+  isolation: isolate;
+  border: none;
+  background-color: white;
+}
+.darkmode--activated .container .tasks-content .task .task-brand .task-brand-title .radio-container .checkmark::after {
+  top: 7px;
+  left: 7px;
+  background-color: black;
+}
+.darkmode--activated .container .tasks-content .task .task-brand .task-brand-title .radio-container input:checked ~ .checkmark {
+  background-color: white;
+}
+.darkmode--activated .container .tasks-content .task .task-content .task-content-description p {
+  isolation: isolate;
+  color: white;
+}
+.darkmode--activated .container .tasks-content .task .task-content .task-content-informations .task-content-informations-categories span {
+  isolation: isolate;
+  color: black;
 }
 
 .container {
@@ -40,6 +117,7 @@ html, body {
   border-radius: 10px;
   padding: 30px 20px 20px 20px;
   margin: 0px 10px;
+  isolation: isolate;
 }
 .container .task-form .task-form-title input {
   width: 100%;
@@ -184,6 +262,10 @@ html, body {
   margin-top: 30px;
   padding: 0px 10px;
 }
+.container .tasks-content a {
+  text-decoration: none;
+  color: black;
+}
 .container .tasks-content .task {
   width: 100%;
   margin: 10px auto;
@@ -280,6 +362,9 @@ html, body {
   padding: 10px 15px;
   color: #5a667f;
 }
+.container .tasks-content .task .task-content .task-content-description a {
+  color: #5a667f;
+}
 .container .tasks-content .task .task-content .task-content-description p {
   width: 100%;
   display: -webkit-box;
@@ -300,6 +385,156 @@ html, body {
   padding: 5px 15px;
   border-radius: 5px;
   color: #223254;
+}
+
+.remodal.remodal-task .remodal-close {
+  background: black;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  color: white;
+}
+
+.remodal-task-title {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.remodal-task-title h3 {
+  margin-left: 20px;
+  font-size: 32px;
+}
+.remodal-task-title input {
+  margin-left: 20px;
+  font-size: 32px;
+  width: 95%;
+  padding: 15px 15px;
+  border: 1px solid #DADADA;
+  outline: none;
+  border-radius: 10px;
+}
+
+.remodal-task-description {
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.remodal-task-description textarea {
+  width: 98%;
+  resize: none;
+  height: 200px;
+  border-radius: 10px;
+  padding: 15px 15px;
+  outline: none;
+  border: 1px solid #DADADA;
+}
+
+.remodal-task-modify .remodal-task-informations .remodal-task-categories {
+  width: 100%;
+}
+.remodal-task-modify .remodal-task-informations .remodal-task-date {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.remodal-task-modify .remodal-task-informations .remodal-task-date i {
+  margin-right: 35px;
+}
+.remodal-task-modify .remodal-task-informations .remodal-task-date button {
+  -webkit-appearance: none;
+  padding: 7px 12px 7px 12px;
+  border: 1px solid #e8eaed;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 1px 3px -2px #9098a9;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  transition: all 150ms ease;
+}
+.remodal-task-modify .remodal-task-buttons .modif-btn {
+  padding: 15px 20px;
+  background: #353535;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s ease-out;
+}
+
+.remodal-task-informations {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+.remodal-task-informations .remodal-task-categories {
+  display: flex;
+  align-items: center;
+}
+.remodal-task-informations .remodal-task-categories i {
+  font-size: 20px;
+  margin-right: 15px;
+}
+.remodal-task-informations .remodal-task-categories input {
+  margin-left: 20px;
+  font-size: 18px;
+  width: 90%;
+  padding: 15px 15px;
+  border: 1px solid #DADADA;
+  outline: none;
+  border-radius: 10px;
+}
+.remodal-task-informations .remodal-task-date {
+  margin-top: 20px;
+}
+.remodal-task-informations .remodal-task-date i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.remodal-task-informations .remodal-task-date input {
+  margin-left: 20px;
+  font-size: 18px;
+  width: 90%;
+  padding: 15px 15px;
+  border: 1px solid #DADADA;
+  outline: none;
+  border-radius: 10px;
+}
+
+.remodal-task-buttons {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+.remodal-task-buttons .remove-btn {
+  padding: 15px 20px;
+  background: #DA0037;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s ease-out;
+}
+.remodal-task-buttons :hover {
+  transform: scale(1.02);
+}
+.remodal-task-buttons .finish-btn {
+  padding: 15px 20px;
+  background: #49da36;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s ease-out;
+}
+.remodal-task-buttons :hover {
+  transform: scale(1.02);
 }
 
 .darkmode--activated .task-form .task-form-title i {

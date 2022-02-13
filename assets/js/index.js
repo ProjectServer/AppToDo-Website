@@ -1,6 +1,5 @@
 // Date du jour
-var today = new Date();
-       var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+
 
 // Initialisation du DarkModeJS ( options )
 
@@ -13,7 +12,7 @@ const options = {
   backgroundColor: '#fff',  // default: '#fff'
   buttonColorDark: '#100f2c',  // default: '#100f2c'
   buttonColorLight: '#fff', // default: '#fff'
-  saveInCookies: false, // default: true,
+  saveInCookies: true, // default: true,
   label: '🌓', // default: ''
   autoMatchOsTheme: false, // default: true
 }
