@@ -26,13 +26,14 @@ html, body {
 .container {
   width: 90%;
   height: 100%;
-  margin: 0 auto;
+  margin: 10px auto;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 .container .task-form {
-  width: 400px;
+  width: 100%;
   height: 530px;
   background: white;
   box-shadow: 4px 4px 22px 8px #dadada;
@@ -175,11 +176,12 @@ html, body {
   transform: scale(1.02);
 }
 .container .tasks-content {
-  width: 60%;
+  width: 100%;
   height: 530px;
   max-height: 540px;
   overflow: auto;
   border-radius: 10px;
+  margin-top: 30px;
   padding: 0px 10px;
 }
 .container .tasks-content .task {
@@ -278,6 +280,13 @@ html, body {
   padding: 10px 15px;
   color: #5a667f;
 }
+.container .tasks-content .task .task-content .task-content-description p {
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
 .container .tasks-content .task .task-content .task-content-informations {
   padding: 15px;
   display: flex;
@@ -295,4 +304,18 @@ html, body {
 
 .darkmode--activated .task-form .task-form-title i {
   color: white;
+}
+
+@media (min-width: 850px) {
+  .container {
+    flex-direction: row;
+    margin-top: 0px;
+  }
+  .container .task-form {
+    width: 400px;
+  }
+  .container .tasks-content {
+    margin-top: 0px;
+    width: 60%;
+  }
 }/*# sourceMappingURL=style.css.map */
