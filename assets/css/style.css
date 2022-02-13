@@ -38,18 +38,14 @@ html, body {
   box-shadow: 4px 4px 22px 8px #dadada;
   border-radius: 10px;
   padding: 30px 20px 20px 20px;
+  margin: 0px 10px;
 }
 .container .task-form .task-form-title input {
   width: 100%;
-  padding: 15px 40px;
+  padding: 15px 15px;
   border: 1px solid #DADADA;
   outline: none;
   border-radius: 10px;
-}
-.container .task-form .task-form-title i {
-  position: absolute;
-  margin-left: -347px;
-  margin-top: 16px;
 }
 .container .task-form .task-informations {
   margin-top: 20px;
@@ -179,9 +175,122 @@ html, body {
   transform: scale(1.02);
 }
 .container .tasks-content {
-  width: 300px;
-  height: 300px;
-  background: red;
+  width: 60%;
+  height: 530px;
+  max-height: 540px;
+  overflow: auto;
+  border-radius: 10px;
+  padding: 0px 10px;
+}
+.container .tasks-content .task {
+  width: 100%;
+  margin: 10px auto;
+  background: white;
+  box-shadow: 4px 4px 22px 8px #dadada;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.container .tasks-content .task .task-brand {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+.container .tasks-content .task .task-brand .task-brand-title {
+  display: flex;
+  align-items: center;
+}
+.container .tasks-content .task .task-brand .task-brand-title .radio-container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.container .tasks-content .task .task-brand .task-brand-title .radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.container .tasks-content .task .task-brand .task-brand-title .radio-container .checkmark {
+  position: absolute;
+  top: 0;
+  margin-top: -12px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid #e8eaed;
+  box-shadow: 0 1px 3px -2px #9098a9;
+  transition: 0.5s ease-out;
+}
+.container .tasks-content .task .task-brand .task-brand-title .radio-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.container .tasks-content .task .task-brand .task-brand-title .radio-container input:checked ~ .checkmark {
+  background-color: black;
+}
+.container .tasks-content .task .task-brand .task-brand-title .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.container .tasks-content .task .task-brand .task-brand-title .radio-container input:checked ~ .checkmark:after {
+  display: block;
+}
+.container .tasks-content .task .task-brand .task-brand-title .radio-container .checkmark:after {
+  top: 6px;
+  left: 6px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: white;
+}
+.container .tasks-content .task .task-brand .task-brand-title h3 {
+  margin-left: 40px;
+}
+.container .tasks-content .task .task-brand .task-brand-edit button {
+  -webkit-appearance: none;
+  padding: 7px 20px 7px 20px;
+  width: 10px;
+  border: 1px solid #e8eaed;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 1px 3px -2px #9098a9;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 150ms ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .tasks-content .task .task-content {
+  display: flex;
+  flex-direction: column;
+}
+.container .tasks-content .task .task-content .task-content-description {
+  padding: 10px 15px;
+  color: #5a667f;
+}
+.container .tasks-content .task .task-content .task-content-informations {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.container .tasks-content .task .task-content .task-content-informations .task-content-informations-time i {
+  margin-right: 10px;
+}
+.container .tasks-content .task .task-content .task-content-informations .task-content-informations-categories span {
+  background: #dadada;
+  padding: 5px 15px;
+  border-radius: 5px;
+  color: #223254;
 }
 
 .darkmode--activated .task-form .task-form-title i {
