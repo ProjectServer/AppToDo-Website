@@ -42,6 +42,9 @@ html, body {
   background: white;
   color: black;
 }
+.darkmode--activated .remodal.remodal-task .remodal-task-buttons .remodal-task-buttons-status div {
+  color: black;
+}
 .darkmode--activated .remodal.remodal-task.remodal-task-modify .remodal-task-title input {
   background: #202327;
   color: white;
@@ -60,7 +63,7 @@ html, body {
 }
 .darkmode--activated .container .task-form {
   background: #16181C !important;
-  box-shadow: 4px 4px 10px 3px #252525;
+  box-shadow: none;
 }
 .darkmode--activated .container .task-form .task-form-title input {
   background: #202327;
@@ -77,6 +80,7 @@ html, body {
 .darkmode--activated .container .tasks-content .task {
   background: #E9E7E2;
   box-shadow: 4px 4px 10px 3px #C2C2C2;
+  box-shadow: none !important;
 }
 .darkmode--activated .container .tasks-content .task .task-brand .task-brand-title .radio-container .checkmark {
   isolation: isolate;
@@ -121,7 +125,7 @@ html, body {
 }
 .container .task-form .task-form-title input {
   width: 100%;
-  padding: 15px 15px;
+  padding: 15px;
   border: 1px solid #DADADA;
   outline: none;
   border-radius: 10px;
@@ -135,9 +139,78 @@ html, body {
   display: flex;
   flex-direction: column;
 }
+.container .task-form .task-informations .task-informations-select {
+  display: flex;
+}
+.container .task-form .task-informations .task-informations-select button {
+  margin-left: 5px;
+  width: 40px;
+  padding: 7px 12px 7px 12px;
+  border: 1px solid #e8eaed;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 1px 3px -2px #9098a9;
+  color: #9098a9;
+  cursor: pointer;
+  font-size: 16px;
+}
+.container .task-form .task-informations .task-informations-select .task-categories-popup {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  display: none;
+  margin-left: -20px;
+  margin-top: 50px;
+  width: 200px;
+  height: 150px;
+  background: white;
+  box-shadow: 4px 4px 22px 8px #dadada;
+  z-index: 10;
+  border-radius: 10px;
+  padding: 15px 10px;
+}
+.container .task-form .task-informations .task-informations-select .task-categories-popup .task-categories-popup.active {
+  -webkit-animation: 2s ease-out 2s 1 showOn;
+          animation: 2s ease-out 2s 1 showOn;
+}
+.container .task-form .task-informations .task-informations-select .task-categories-popup input {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #DADADA;
+  outline: none;
+  border-radius: 5px;
+}
+.container .task-form .task-informations .task-informations-select .task-categories-popup h3 {
+  font-size: 14px;
+  font-weight: 400;
+}
+.container .task-form .task-informations .task-informations-select .task-categories-popup button {
+  background: black;
+  width: 100%;
+  margin-left: 0px;
+  margin-top: 15px;
+  color: white;
+  transition: 0.5s ease-out;
+}
+.container .task-form .task-informations .task-informations-select .task-categories-popup button:hover {
+  transform: scale(1.02);
+}
+.container .task-form .task-informations .task-informations-select .task-categories-popup::before {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-bottom: solid #ffffff 10px;
+  top: -10px;
+  content: " ";
+  height: 0;
+  left: 90%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
 .container .task-form .task-informations .select {
   position: relative;
-  min-width: 200px;
+  min-width: 120px;
 }
 .container .task-form .task-informations .select svg {
   position: absolute;
@@ -260,17 +333,20 @@ html, body {
   overflow: auto;
   border-radius: 10px;
   margin-top: 30px;
-  padding: 0px 10px;
+  padding: 0px;
 }
 .container .tasks-content a {
   text-decoration: none;
   color: black;
 }
+.container .tasks-content .task:nth-child(1) {
+  margin-top: 0px;
+}
 .container .tasks-content .task {
   width: 100%;
   margin: 10px auto;
   background: white;
-  box-shadow: 4px 4px 22px 8px #dadada;
+  box-shadow: 4px 4px 11px 0px #dadada;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -430,6 +506,27 @@ html, body {
   border: 1px solid #DADADA;
 }
 
+.remodal-task-buttons .remodal-task-buttons-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.remodal-task-buttons .remodal-task-buttons-status div {
+  padding: 7px 10px;
+  border: 1px solid #e8eaed;
+  width: 110px;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 1px 3px -2px #9098a9;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.remodal-task-buttons .remodal-task-buttons-status div i {
+  color: #FABC43;
+}
+
 .remodal-task-modify .remodal-task-informations .remodal-task-categories {
   width: 100%;
 }
@@ -442,7 +539,6 @@ html, body {
   margin-right: 35px;
 }
 .remodal-task-modify .remodal-task-informations .remodal-task-date button {
-  -webkit-appearance: none;
   padding: 7px 12px 7px 12px;
   border: 1px solid #e8eaed;
   border-radius: 5px;
@@ -451,7 +547,63 @@ html, body {
   cursor: pointer;
   font-family: inherit;
   font-size: 16px;
+}
+.remodal-task-modify .remodal-task-buttons .remodal-task-buttons-status .select {
+  position: relative;
+  min-width: 120px;
+}
+.remodal-task-modify .remodal-task-buttons .remodal-task-buttons-status .select svg {
+  position: absolute;
+  right: 12px;
+  top: calc(50% - 3px);
+  width: 10px;
+  height: 6px;
+  stroke-width: 2px;
+  stroke: #9098a9;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.remodal-task-modify .remodal-task-buttons .remodal-task-buttons-status .select select {
+  -webkit-appearance: none;
+  padding: 7px 40px 7px 12px;
+  width: 100%;
+  border: 1px solid #e8eaed;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 1px 3px -2px #9098a9;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
   transition: all 150ms ease;
+}
+.remodal-task-modify .remodal-task-buttons .remodal-task-buttons-status .select select:required:invalid {
+  color: #5a667f;
+}
+.remodal-task-modify .remodal-task-buttons .remodal-task-buttons-status .select select option {
+  color: #223254;
+}
+.remodal-task-modify .remodal-task-buttons .remodal-task-buttons-status .select select option[value=""][disabled] {
+  display: none;
+}
+.remodal-task-modify .remodal-task-buttons .remodal-task-buttons-status .select select:focus {
+  outline: none;
+  border-color: #dadada;
+  box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+}
+.remodal-task-modify .remodal-task-buttons .remodal-task-buttons-status .select select:hover + svg {
+  stroke: black;
+}
+.remodal-task-modify .remodal-task-buttons .remodal-task-buttons-status .sprites {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .remodal-task-modify .remodal-task-buttons .modif-btn {
   padding: 15px 20px;
@@ -508,6 +660,7 @@ html, body {
   margin-top: 50px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0px 20px;
 }
 .remodal-task-buttons .remove-btn {
@@ -520,20 +673,7 @@ html, body {
   cursor: pointer;
   transition: 0.5s ease-out;
 }
-.remodal-task-buttons :hover {
-  transform: scale(1.02);
-}
-.remodal-task-buttons .finish-btn {
-  padding: 15px 20px;
-  background: #49da36;
-  color: white;
-  border: none;
-  outline: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.5s ease-out;
-}
-.remodal-task-buttons :hover {
+.remodal-task-buttons .remove-btn:hover {
   transform: scale(1.02);
 }
 
@@ -541,6 +681,23 @@ html, body {
   color: white;
 }
 
+@-webkit-keyframes showOn {
+  0% {
+    background-color: red;
+  }
+  100% {
+    background-color: blue;
+  }
+}
+
+@keyframes showOn {
+  0% {
+    background-color: red;
+  }
+  100% {
+    background-color: blue;
+  }
+}
 @media (min-width: 850px) {
   .container {
     flex-direction: row;
@@ -552,5 +709,6 @@ html, body {
   .container .tasks-content {
     margin-top: 0px;
     width: 60%;
+    margin: 0px 10px;
   }
 }/*# sourceMappingURL=style.css.map */

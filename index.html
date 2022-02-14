@@ -30,6 +30,7 @@
               <h2> Catégories </h2>
             </div>
             <div class="task-informations-select">  
+             
               <label class="select" for="slct">
                 <select id="slct" required="required">
                   <option value="" disabled="disabled" selected="selected">Catégories</option>
@@ -45,11 +46,21 @@
                   <use xlink:href="#select-arrow-down"></use>
                 </svg>
               </label>
+              
               <svg class="sprites">
                 <symbol id="select-arrow-down" viewbox="0 0 10 6">
                   <polyline points="1 1 5 5 9 1"></polyline>
                 </symbol>
               </svg>
+
+              <button onclick="openSideCategories()" class="categories-btn"><i class="fa-solid fa-plus"></i></button>
+
+              <div class="task-categories-popup" id="task-pop">
+                <h3> Ajouter une catégorie </h3>
+                <input type="text" placeholder="Travail, courses, ...">
+                <button> Ajouter </button>
+              </div>
+              
             </div>
           </div>
           <div class="task-informations-date">
@@ -142,8 +153,12 @@
             </div>
           </div>
           <div class="remodal-task-buttons">
-            <button class="remove-btn"> Supprimer la tâche </button>
-            <button class="finish-btn"> Finir ma tâche </button>
+            <div class="remodal-task-buttons-status">
+              <div><i class="fa-solid fa-circle"></i> En cours </div>
+            </div>
+            <div class="remodal-task-buttons-action">
+              <button class="remove-btn"> Supprimer la tâche </button>
+            </div>   
           </div>       
         </div>
 
@@ -153,7 +168,7 @@
             <input type="text" value="Trier mes affaires">
           </div>
           <div class="remodal-task-description">
-            <textarea> Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatem, dignissimos vero placeat voluptatibus in facilis, quo consequatur necessitatibus iusto labore cumque accusamus tempore, atque nemo. Adipisci error autem quae! </textarea>     
+            <textarea>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatem, dignissimos vero placeat voluptatibus in facilis, quo consequatur necessitatibus iusto labore cumque accusamus tempore, atque nemo. Adipisci error autem quae! </textarea>     
           </div>
           <div class="remodal-task-informations">
             <div class="remodal-task-categories">
@@ -166,8 +181,27 @@
             </div>
           </div>
           <div class="remodal-task-buttons">
-            <button class="remove-btn"> Supprimer la tâche </button>
-            <button class="modif-btn"> Sauvegarder </button>
+            <div class="remodal-task-buttons-status">
+              <label class="select" for="slctstatus">
+                <select id="slctstatus" required="required">
+                  <option value="" id="selectStatus" disabled="disabled" selected="selected"> Status </option>
+                  <option value="#"> Pas commencé </option>
+                  <option value="#"> En cours </option>
+                  <option value="#"> Fini </option> 
+                </select>
+                <svg>
+                  <use xlink:href="#select-arrow-down"></use>
+                </svg>
+              </label>
+              <svg class="sprites">
+                <symbol id="select-arrow-down" viewbox="0 0 10 6">
+                  <polyline points="1 1 5 5 9 1"></polyline>
+                </symbol>
+              </svg>
+            </div>  
+            <div class="remodal-task-buttons-action">
+              <button class="modif-btn"> Sauvegarder </button>
+            </div>        
           </div>       
         </div>
 

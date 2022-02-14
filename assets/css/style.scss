@@ -16,11 +16,23 @@ html, body{
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
 }
+$status_done: #29e953;
+$status_pending: #FABC43;
+$status_notstarted: #16181C;
 
 .darkmode--activated {
   ::selection{
     background: white;
     color: black;
+  }
+  .remodal.remodal-task{
+    .remodal-task-buttons{
+      .remodal-task-buttons-status{
+        div{
+          color: black;
+        }
+      }
+    }
   }
 
   .remodal.remodal-task.remodal-task-modify{
@@ -54,9 +66,10 @@ html, body{
   .container{
     .task-form{
       background: #16181C !important;
-      -webkit-box-shadow: 4px 4px 10px 3px #252525;
-      -moz-box-shadow: 4px 4px 10px 3px #252525;
-      box-shadow: 4px 4px 10px 3px #252525;
+      // -webkit-box-shadow: 4px 4px 10px 3px #252525;
+      // -moz-box-shadow: 4px 4px 10px 3px #252525;
+      // box-shadow: 4px 4px 10px 3px #252525;
+      box-shadow: none;
       .task-form-title{
         input{
           background: #202327;
@@ -81,6 +94,7 @@ html, body{
         -webkit-box-shadow: 4px 4px 10px 3px #C2C2C2;
         -moz-box-shadow: 4px 4px 10px 3px #C2C2C2;
         box-shadow: 4px 4px 10px 3px #C2C2C2;
+        box-shadow: none !important;
         .task-brand{
           .task-brand-title{
             .radio-container {
@@ -149,7 +163,7 @@ html, body{
     .task-form-title{
     input{
       width: 100%;
-      padding: 15px 15px;
+      padding: 15px;
       border: 1px solid #DADADA;
       outline: none;
       border-radius: 10px;
@@ -163,9 +177,79 @@ html, body{
     padding: 10px 15px;
     display: flex;
     flex-direction: column;
+    .task-informations-select{
+      display: flex;
+      button{
+        margin-left: 5px;
+        width: 40px;
+        padding: 7px 12px 7px 12px;
+        border: 1px solid #e8eaed;
+        border-radius: 5px;
+        background: #fff;
+        box-shadow: 0 1px 3px -2px #9098a9;
+        color: #9098a9;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .task-categories-popup{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        display: none;
+        margin-left: -20px;
+        margin-top: 50px;
+        width: 200px;
+        height: 150px;
+        background: white;
+        -webkit-box-shadow: 4px 4px 22px 8px rgba(218,218,218,1);
+        -moz-box-shadow: 4px 4px 22px 8px rgba(218,218,218,1);
+        box-shadow: 4px 4px 22px 8px rgba(218,218,218,1);
+        z-index: 10;
+        border-radius: 10px;
+        padding: 15px 10px;
+        .task-categories-popup.active{
+          animation: 2s ease-out 2s 1 showOn;
+        }
+        input{
+          margin-top: 15px;
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #DADADA;
+          outline: none;
+          border-radius: 5px;
+        }
+        h3{
+          font-size: 14px;
+          font-weight: 400;
+        }
+        button{
+          background: black;
+          width: 100%;
+          margin-left: 0px;
+          margin-top: 15px;
+          color: white;
+          transition: .5s ease-out;
+        }
+        button:hover{
+          transform:scale(1.02);
+        }
+      }
+      .task-categories-popup::before{
+        border-left: solid transparent 10px;
+        border-right: solid transparent 10px;
+        border-bottom: solid #ffffff 10px;
+        top: -10px;
+        content: " ";
+        height: 0;
+        left: 90%;
+        margin-left: -13px;
+        position: absolute;
+        width: 0;
+      }
+    }
     .select {
       position: relative;
-      min-width: 200px;
+      min-width: 120px;
     }
     .select svg {
       position: absolute;
@@ -284,7 +368,8 @@ html, body{
     overflow: auto;
     border-radius: 10px;
     margin-top: 30px;
-    padding: 0px 10px;
+    padding: 0px;
+
     // background: white;
     // -webkit-box-shadow: 4px 4px 22px 8px rgba(218,218,218,1);
     // -moz-box-shadow: 4px 4px 22px 8px rgba(218,218,218,1);
@@ -294,13 +379,16 @@ html, body{
       text-decoration: none;
       color: black;
     }
+    .task:nth-child(1){
+      margin-top: 0px;
+    }
     .task{
       width: 100%;
       margin: 10px auto;
       background: white;
-      -webkit-box-shadow: 4px 4px 22px 8px rgba(218,218,218,1);
-      -moz-box-shadow: 4px 4px 22px 8px rgba(218,218,218,1);
-      box-shadow: 4px 4px 22px 8px rgba(218,218,218,1);
+      -webkit-box-shadow: 4px 4px 11px 0px #dadada;
+      -moz-box-shadow: 4px 4px 11px 0px #dadada;
+      box-shadow: 4px 4px 11px 0px #dadada;
       border-radius: 10px;
       display: flex;
       flex-direction: column;
@@ -472,6 +560,30 @@ html, body{
     border: 1px solid #DADADA;
   }
 }
+.remodal-task-buttons{
+  .remodal-task-buttons-status{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    div{
+      padding: 7px 10px;
+      border: 1px solid #e8eaed;
+      width: 110px;
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 0 1px 3px -2px #9098a9;
+      font-size: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      i{
+        color: $status_pending;
+      }
+    }
+  }
+}
+
+
 .remodal-task-modify{
   .remodal-task-informations{
     .remodal-task-categories{
@@ -485,8 +597,41 @@ html, body{
         margin-right: 35px;
       }
       button{
-        -webkit-appearance: none;
         padding: 7px 12px 7px 12px;
+        border: 1px solid #e8eaed;
+        border-radius: 5px;
+        background: #fff;
+        box-shadow: 0 1px 3px -2px #9098a9;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 16px;
+      }
+    }
+  
+  }
+  .remodal-task-buttons{
+    .remodal-task-buttons-status{
+      .select {
+        position: relative;
+        min-width: 120px;
+      }
+      .select svg {
+        position: absolute;
+        right: 12px;
+        top: calc(50% - 3px);
+        width: 10px;
+        height: 6px;
+        stroke-width: 2px;
+        stroke: #9098a9;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        pointer-events: none;
+      }
+      .select select {
+        -webkit-appearance: none;
+        padding: 7px 40px 7px 12px;
+        width: 100%;
         border: 1px solid #e8eaed;
         border-radius: 5px;
         background: #fff;
@@ -496,10 +641,31 @@ html, body{
         font-size: 16px;
         transition: all 150ms ease;
       }
+      .select select:required:invalid {
+        color: #5a667f;
+      }
+      .select select option {
+        color: #223254;
+      }
+      .select select option[value=""][disabled] {
+        display: none;
+      }
+      .select select:focus {
+        outline: none;
+        border-color: #dadada;
+        box-shadow: 0 0 0 2px rgba(0,119,255,0.2);
+      }
+      .select select:hover + svg {
+        stroke: black;
+      }
+      .sprites {
+        position: absolute;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+        user-select: none;
+      }
     }
-  
-  }
-  .remodal-task-buttons{
     .modif-btn{
       padding: 15px 20px;
       background: #353535;
@@ -555,6 +721,7 @@ html, body{
   margin-top: 50px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0px 20px;
   .remove-btn{
     padding: 15px 20px;
@@ -566,28 +733,24 @@ html, body{
     cursor: pointer;
     transition: .5s ease-out;
   }
-  :hover{
+  .remove-btn:hover{
     transform: scale(1.02);
   }
-  .finish-btn{
-    padding: 15px 20px;
-    background: #49da36;
-    color: white;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: .5s ease-out;
-  }
-  :hover{
-    transform: scale(1.02);
-  }
+ 
 }
+
 
 
 // Darkmode exception 
 .darkmode--activated .task-form .task-form-title i{
   color: white;
+}
+
+// Animation
+
+@keyframes showOn{
+  0%{ background-color: red; }
+  100%{ background-color: blue; }
 }
 
 @media(min-width: 850px){
@@ -600,6 +763,7 @@ html, body{
     .tasks-content{
       margin-top: 0px;
       width: 60%;
+      margin: 0px 10px;
     }
   }
   
