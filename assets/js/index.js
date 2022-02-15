@@ -54,8 +54,9 @@ function addCategories(){
     categoriesInput.value = "";
   }
 }
+
  // Ajout des catégories dans le select
-    var selectCategories = document.getElementById('slct');
+  var selectCategories = document.getElementById('slct');
     for(i = 0; i < categories.length; i++){
       var opt = document.createElement('option');
       opt.value = categories[i];
@@ -64,21 +65,34 @@ function addCategories(){
     }
 
 
+// Ajout des tâches 
+
+  function addTask(){
+    var titleTask = document.getElementById('taskTitle').value;
+    var categoriesTask = document.getElementById("slct").options[document.getElementById('slct').selectedIndex].text;
+    var dateTask = document.getElementById("slctdate").options[document.getElementById('slctdate').selectedIndex].text;
+    var taskDesc = document.getElementById('taskDesc').value;
+  }
+ 
+  
+// Initialisation du calendrier
 
 
 
-function addTask(){
-  var titleTask = document.getElementById('taskTitle').value;
-  var categoriesTask = document.getElementById("slct").options[document.getElementById('slct').selectedIndex].text;
-  var dateTask = document.getElementById("slctdate").options[document.getElementById('slctdate').selectedIndex].text;
-  var taskDesc = document.getElementById('taskDesc').value;
+   $( function() {
+    $( "slctdate"  ).datepicker( $.datepicker.regional[ "fr" ] );
+    $( "#slctdate" ).datepicker({
+      dateFormat: "dd-mm-yy",
+      
+    });
+    
+  } );
 
 
 
-  // alert(titleTask + ' ' + categoriesTask + ' ' + dateTask + ' ' + taskDesc);
-}
 
 jQuery(document).ready(function($){
+  
 
 
   // $('.what-container').each(function(){ 
