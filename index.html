@@ -21,7 +21,7 @@
     <div class="container">
       <div class="task-form">
         <div class="task-form-title">
-          <input placeholder="Entrez le titre de votre tâche">
+          <input id="taskTitle" placeholder="Entrez le titre de votre tâche">
         </form>
         </div>
         <div class="task-informations">
@@ -34,13 +34,6 @@
               <label class="select" for="slct">
                 <select id="slct" required="required">
                   <option value="" disabled="disabled" selected="selected">Catégories</option>
-                  <option value="#">One</option>
-                  <option value="#">Two</option>
-                  <option value="#">Three</option>
-                  <option value="#">Four</option>
-                  <option value="#">Five</option>
-                  <option value="#">Six</option>
-                  <option value="#">Seven</option>
                 </select>
                 <svg>
                   <use xlink:href="#select-arrow-down"></use>
@@ -57,8 +50,8 @@
 
               <div class="task-categories-popup" id="task-pop">
                 <h3> Ajouter une catégorie </h3>
-                <input type="text" placeholder="Travail, courses, ...">
-                <button> Ajouter </button>
+                <input id="categoriesInput" type="text" placeholder="Exemple : Travail">
+                <button onclick="addCategories()"> Ajouter </button>
               </div>
               
             </div>
@@ -70,7 +63,7 @@
             <div class="task-information-date-select">
               <label class="select" for="slctdate">
                 <select id="slctdate" required="required">
-                  <option value="" id="selectDate" disabled="disabled" selected="selected">
+                  <option value="" id="selectDate" selected="selected">
                   <script>
                     var today = new Date();
                     var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
@@ -98,10 +91,10 @@
           </div>
         </div>
         <div class="task-description">
-          <textarea placeholder="Description de la tâche..."></textarea>
+          <textarea id="taskDesc" placeholder="Description de la tâche..."></textarea>
         </div>
         <div class="task-button">
-          <button> Ajouter ma tâche </button>
+          <button onclick="addTask()"> Ajouter ma tâche </button>
         </div>
       </div>
       <div class="tasks-content">
