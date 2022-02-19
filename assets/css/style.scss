@@ -78,6 +78,13 @@ $status_notstarted: #16181C;
       }
       .task-informations{
         background: #202329;
+        .task-informations-categories{
+          .task-informations-select{
+            .task-categories-popup{
+              box-shadow: none;
+            }
+          }
+        }
       }
       .task-description{
         textarea{
@@ -167,6 +174,10 @@ $status_notstarted: #16181C;
       border: 1px solid #DADADA;
       outline: none;
       border-radius: 10px;
+      transition: .3s ease-out;
+    }
+    .error-title{
+      border: 1px solid #DA0037 !important;
     }
   }
   .task-informations{
@@ -208,8 +219,8 @@ $status_notstarted: #16181C;
         border-radius: 10px;
         padding: 15px 10px;
         .task-categories-popup.active{
-          animation: 2s ease-out 2s 1 showOn;
-        }
+          transition: display .5s ease-out;
+         }
         input{
           margin-top: 15px;
           width: 100%;
@@ -276,6 +287,9 @@ $status_notstarted: #16181C;
       font-family: inherit;
       font-size: 16px;
       transition: all 150ms ease;
+    }
+    .error-categories{
+      border: 1px solid #DA0037 !important;
     }
     .select select:required:invalid {
       color: #5a667f;
@@ -358,6 +372,9 @@ $status_notstarted: #16181C;
             pointer-events: none;
             user-select: none;
           }
+          .error-date{
+            border: 1px solid #DA0037;
+          }
         }
          
         
@@ -375,6 +392,9 @@ $status_notstarted: #16181C;
       outline: none;
       box-shadow: 1px 1px 5px 2px #dadada;
       border: none; 
+    }
+    .error-description{
+      border: 1px solid #DA0037;
     }
     ::placeholder{
       color: #82878F;
@@ -606,7 +626,7 @@ $status_notstarted: #16181C;
     div{
       padding: 7px 10px;
       border: 1px solid #e8eaed;
-      width: 110px;
+      width: 130px;
       border-radius: 5px;
       background: #fff;
       box-shadow: 0 1px 3px -2px #9098a9;
@@ -615,7 +635,7 @@ $status_notstarted: #16181C;
       justify-content: space-between;
       align-items: center;
       i{
-        color: $status_pending;
+        color: #16181C;
       }
     }
   }
@@ -626,11 +646,58 @@ $status_notstarted: #16181C;
   .remodal-task-informations{
     .remodal-task-categories{
       width: 100%;
+      .select {
+        position: relative;
+        min-width: 120px;
+        margin-left: 24px;
+      }
+      .select svg {
+        position: absolute;
+        right: 12px;
+        top: calc(50% - 3px);
+        width: 10px;
+        height: 6px;
+        stroke-width: 2px;
+        stroke: #9098a9;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        pointer-events: none;
+      }
+      .select select {
+        -webkit-appearance: none;
+        padding: 7px 12px 7px 12px;
+        width: 100%;
+        border: 1px solid #e8eaed;
+        border-radius: 5px;
+        background: #fff;
+        box-shadow: 0 1px 3px -2px #9098a9;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 16px;
+        transition: all 150ms ease;
+      }
+      .select select:required:invalid {
+        color: #5a667f;
+      }
+      .select select option {
+        color: #223254;
+      }
+      .select select option[value=""][disabled] {
+        display: none;
+      }
+      .select select:focus {
+        outline: none;
+        border-color: #dadada;
+        box-shadow: 0 0 0 2px rgba(0,119,255,0.2);
+      }
+
     }
     .remodal-task-date{
       width: 100%;
       display: flex;
       justify-content: flex-start;
+      align-items: center;
       i{
         margin-right: 35px;
       }
@@ -668,7 +735,7 @@ $status_notstarted: #16181C;
       }
       .select select {
         -webkit-appearance: none;
-        padding: 7px 40px 7px 12px;
+        padding: 7px 12px 7px 12px;
         width: 100%;
         border: 1px solid #e8eaed;
         border-radius: 5px;
@@ -692,16 +759,6 @@ $status_notstarted: #16181C;
         outline: none;
         border-color: #dadada;
         box-shadow: 0 0 0 2px rgba(0,119,255,0.2);
-      }
-      .select select:hover + svg {
-        stroke: black;
-      }
-      .sprites {
-        position: absolute;
-        width: 0;
-        height: 0;
-        pointer-events: none;
-        user-select: none;
       }
     }
     .modif-btn{
@@ -745,7 +802,6 @@ $status_notstarted: #16181C;
       margin-right: 10px;
     }
     input{
-      margin-left: 20px;
       font-size: 18px;
       width: 90%;
       padding: 15px 15px;

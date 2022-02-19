@@ -23,7 +23,7 @@
     <div class="container">
       <div class="task-form">
         <div class="task-form-title">
-          <input id="taskTitle" placeholder="Entrez le titre de votre tâche">
+          <input id="taskTitle" placeholder="Entrez le titre de votre tâche" autocomplete="off">
         </form>
         </div>
         <div class="task-informations">
@@ -64,8 +64,8 @@
             </div>
             <div class="task-information-date-select">
               <label class="select" for="slctdate">
-                <input id="slctdate" required="required" value="">
-                  
+                <input id="slctdate" required="required" value="" readonly="readonly">
+    
                 </select>
                 <svg>
                   <use xlink:href="#select-arrow-down"></use>
@@ -86,204 +86,13 @@
           <button onclick="addTask()"> Ajouter ma tâche </button>
         </div>
       </div>
-      <div class="tasks-content">
-          <div class="task">
-            <div class="task-brand">
-              <div class="task-brand-title">
-                <label class="radio-container">
-                  <input type="radio">
-                  <span class="checkmark"></span>
-                </label>       
-                <a href="#modal1"> <h3> Trier mes affaires </h3></a>
-              </div>
-              <div class="task-brand-edit">
-                <a href="#modal2"><button><i class="fa-solid fa-pen-to-square"></i></button></a>
-              </div>
-            </div>
-            <div class="task-content">
-              <div class="task-content-description">
-                <a href="#modal1"> <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatem, dignissimos vero placeat voluptatibus in facilis, quo consequatur necessitatibus iusto labore cumque accusamus tempore, atque nemo. Adipisci error autem quae! </p></a>
-              </div>
-              <div class="task-content-informations">
-                <div class="task-content-informations-time">
-                  <i class="fa-solid fa-hourglass"></i>
-                  <span> 15/02/2022</span>
-                </div>
-                <div class="task-content-informations-categories">
-                  <span> Work </span>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="tasks-content" id="task-cont">
 
-        <div class="remodal remodal-task" data-remodal-id="modal1">
-          <button data-remodal-action="close" class="remodal-close"></button>
-          <div class="remodal-task-title">
-            <h3> Trier mes affaires</h3>
-          </div>
-          <div class="remodal-task-description">
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatem, dignissimos vero placeat voluptatibus in facilis, quo consequatur necessitatibus iusto labore cumque accusamus tempore, atque nemo. Adipisci error autem quae! </p>
-          </div>
-          <div class="remodal-task-informations">
-            <div class="remodal-task-categories">
-              <i class="fa-solid fa-bookmark"></i>
-              <span> Work </span>
-            </div>
-            <div class="remodal-task-date">
-              <i class="fa-solid fa-calendar-check"></i>
-              <span> 15/02/2022</span>
-            </div>
-          </div>
-          <div class="remodal-task-buttons">
-            <div class="remodal-task-buttons-status">
-              <div><i class="fa-solid fa-circle"></i> En cours </div>
-            </div>
-            <div class="remodal-task-buttons-action">
-              <button class="remove-btn"> Supprimer la tâche </button>
-            </div>   
-          </div>       
-        </div>
-
-        <div class="remodal remodal-task remodal-task-modify" data-remodal-id="modal2">
-          <button data-remodal-action="close" class="remodal-close"></button>
-          <div class="remodal-task-title">
-            <input type="text" value="Trier mes affaires">
-          </div>
-          <div class="remodal-task-description">
-            <textarea>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda voluptatem, dignissimos vero placeat voluptatibus in facilis, quo consequatur necessitatibus iusto labore cumque accusamus tempore, atque nemo. Adipisci error autem quae! </textarea>     
-          </div>
-          <div class="remodal-task-informations">
-            <div class="remodal-task-categories">
-              <i class="fa-solid fa-bookmark"></i>
-              <input type="text" value="Work">
-            </div>
-            <div class="remodal-task-date">
-              <i class="fa-solid fa-calendar-check"></i>
-              <button> 15/02/2022 </button>
-            </div>
-          </div>
-          <div class="remodal-task-buttons">
-            <div class="remodal-task-buttons-status">
-              <label class="select" for="slctstatus">
-                <select id="slctstatus" required="required">
-                  <option value="" id="selectStatus" disabled="disabled" selected="selected"> Status </option>
-                  <option value="#"> Pas commencé </option>
-                  <option value="#"> En cours </option>
-                  <option value="#"> Fini </option> 
-                </select>
-                <svg>
-                  <use xlink:href="#select-arrow-down"></use>
-                </svg>
-              </label>
-              <svg class="sprites">
-                <symbol id="select-arrow-down" viewbox="0 0 10 6">
-                  <polyline points="1 1 5 5 9 1"></polyline>
-                </symbol>
-              </svg>
-            </div>  
-            <div class="remodal-task-buttons-action">
-              <button class="modif-btn"> Sauvegarder </button>
-            </div>        
-          </div>       
-        </div>
-
-        <div class="task">
-          <div class="task-brand">
-            <div class="task-brand-title">
-              <label class="radio-container">
-                <input type="radio">
-                <span class="checkmark"></span>
-              </label>       
-              <h3> Trier mes affaires </h3>
-            </div>
-            <div class="task-brand-edit">
-              <button><i class="fa-solid fa-pen-to-square"></i></button>
-            </div>
-          </div>
-          <div class="task-content">
-            <div class="task-content-description">
-              <p> Ceci est la description de la tâche </p>
-            </div>
-            <div class="task-content-informations">
-              <div class="task-content-informations-time">
-                <i class="fa-solid fa-hourglass"></i>
-                <span> 15/02/2022</span>
-              </div>
-              <div class="task-content-informations-categories">
-                <span> Work </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="task">
-          <div class="task-brand">
-            <div class="task-brand-title">
-              <label class="radio-container">
-                <input type="radio">
-                <span class="checkmark"></span>
-              </label>       
-              <h3> Trier mes affaires </h3>
-            </div>
-            <div class="task-brand-edit">
-              <button><i class="fa-solid fa-pen-to-square"></i></button>
-            </div>
-          </div>
-          <div class="task-content">
-            <div class="task-content-description">
-              <p> Ceci est la description de la tâche </p>
-            </div>
-            <div class="task-content-informations">
-              <div class="task-content-informations-time">
-                <i class="fa-solid fa-hourglass"></i>
-                <span> 15/02/2022</span>
-              </div>
-              <div class="task-content-informations-categories">
-                <span> Work </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="task">
-          <div class="task-brand">
-            <div class="task-brand-title">
-              <label class="radio-container">
-                <input type="radio">
-                <span class="checkmark"></span>
-              </label>       
-              <h3> Trier mes affaires </h3>
-            </div>
-            <div class="task-brand-edit">
-              <button><i class="fa-solid fa-pen-to-square"></i></button>
-            </div>
-          </div>
-          <div class="task-content">
-            <div class="task-content-description">
-              <p> Ceci est la description de la tâche </p>
-            </div>
-            <div class="task-content-informations">
-              <div class="task-content-informations-time">
-                <i class="fa-solid fa-hourglass"></i>
-                <span> 15/02/2022</span>
-              </div>
-              <div class="task-content-informations-categories">
-                <span> Work </span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
     <script src="assets/js/index.js"></script>
     <script src="assets/js/datepicker-fr.js"></script>
-    <!-- <script>
-      var inputSelectDate = document.getElementById('slctdate');
-      var today = new Date();
-      var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
-      inputSelectDate.value.append(date);
-    </script> -->
 
     
   </body>
